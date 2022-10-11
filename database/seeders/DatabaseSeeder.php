@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'username' => 'user',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
+        User::create([
+            'name' => 'halo',
+            'username' => 'admin',
+            'role' => 'admin',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+        ]);
         $kategori = Kategori::create([
             'name' => 'makanan'
         ]); 

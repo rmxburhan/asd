@@ -12,13 +12,28 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Kategori</a>
           </li>
+          @auth
+          @if(auth()->user()->role == "admin")
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('view.produk.admin') }}">Kelola produk</a>
+          </li>
+          @else
           <li class="nav-item">
             <a class="nav-link" href="{{ route('view.keranjang') }}">Keranjang</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('view.summary') }}">Summary</a>
+          </li>
+          @endif
+          @endauth
         </ul>
         <div class="ms-auto d-block">
+          @guest
             <a href="{{ route('view.login') }}"class="btn btn-danger ">Login</a>
+            @endguest
+            @auth
             <a href="{{ route('logout') }}"class="btn btn-outline-danger">Logout</a>
+            @endauth
         </div>
       </div>
     </div>

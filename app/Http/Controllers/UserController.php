@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\DetailTransaksi;
 
 class UserController extends Controller
 {
@@ -54,5 +54,12 @@ class UserController extends Controller
     {
         auth()->logout();
         return redirect()->route('home');
+    }
+
+    public function summary(Request $request)
+    {
+        $detailtransaksi = DetailTransaksi::where('user_id', auth()->id())->where('status', 'cekout')->get();
+
+        return view('summary', compact('detailtransaksi'));
     }
 }

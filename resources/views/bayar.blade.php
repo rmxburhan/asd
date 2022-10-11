@@ -13,7 +13,7 @@
         <div class="row">
             
             <div class="col-6">
-                <form action="{{ route('bayar', $detailtransaksi->id) }}" method="POST">
+                <form action="{{ route('bayar', $detailtransaksi->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card-body">

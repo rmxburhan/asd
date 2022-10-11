@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailTransaksiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
@@ -30,4 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/keranjang', [ProdukController::class, 'keranjang'])->name('view.keranjang');
     Route::get('/bayar/{detailtransaksi}', [DetailTransaksiController::class, 'bayar'])->name('view.bayar');
     Route::post('/bayar/{detailtransaksi}', [DetailTransaksiController::class, 'postbayar'])->name('bayar');
+    Route::get('/sumary', [UserController::class , 'summary'])->name('view.summary');
+
+    Route::get('/admin/produk', [AdminController::class , 'index'])->name('view.produk.admin');
 });

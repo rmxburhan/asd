@@ -1,4 +1,7 @@
 <div class="container">
+    @if(Session::has('status'))
+    <span class="text-success">Berhasil melakukan cekout</span>
+    @endif
     @foreach ($data as $item)
     <div class="row mt-3">
         <div class="card">
