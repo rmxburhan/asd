@@ -21,9 +21,9 @@
                     <td>Rp. {{number_format($item->harga , 0 , ',', '.')}}</td>
                     <td>
                         <div class="d-flex">
-                            <button href="{{ route('view.edit', $item->id) }}" class="btn btn-secondary me-2">
+                            <a href="{{ route('view.edit', $item->id) }}" class="btn btn-secondary me-2">
                                 Edit
-                            </button>
+                            </a>
                         <form action="{{ route('destroy.produk', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')

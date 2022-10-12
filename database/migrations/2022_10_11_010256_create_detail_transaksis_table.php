@@ -21,6 +21,7 @@ class CreateDetailTransaksisTable extends Migration
             $table->integer('qty');
             $table->enum('status', ['keranjang', 'cekout']);
             $table->integer('total_harga');
+            $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }

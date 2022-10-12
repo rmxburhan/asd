@@ -37,5 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/produk/add', [ProdukController::class, 'addproduk'])->name('view.produk.add');
     Route::post('/admin/produk', [AdminController::class, 'storeproduk'])->name('store.produk');
     Route::delete('/admin/produk/{produk}', [ProdukController::class, 'destroy'])->name('destroy.produk');
+    Route::put('/edit/produk/{produk}', [AdminController::class, 'updateproduk'])->name('edit.produk');
     Route::get('/edit/produk/{produk}', [AdminController::class, 'edit'])->name('view.edit');
 });

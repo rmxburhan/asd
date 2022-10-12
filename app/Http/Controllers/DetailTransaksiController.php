@@ -21,6 +21,7 @@ class DetailTransaksiController extends Controller
     {
         $request->validate([
             'bukti_pembayaran' => 'required',
+            
         ]);
 
         $transaksi = Transaksi::create([

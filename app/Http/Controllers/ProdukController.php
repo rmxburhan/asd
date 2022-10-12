@@ -58,6 +58,7 @@ class ProdukController extends Controller
     public function addproduk()
     {
         $kategoris = Kategori::all();
-        return view('admin.addproduk', compact('kategoris'));
+        $tipe = "tambah";
+        return view('admin.addproduk', compact('kategoris', 'tipe'));
     }
 }
