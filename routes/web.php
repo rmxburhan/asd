@@ -39,4 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/produk/{produk}', [ProdukController::class, 'destroy'])->name('destroy.produk');
     Route::put('/edit/produk/{produk}', [AdminController::class, 'updateproduk'])->name('edit.produk');
     Route::get('/edit/produk/{produk}', [AdminController::class, 'edit'])->name('view.edit');
+
+    Route::get('/admin/user', [AdminController::class, 'userindex'])->name('view.kelolauser');
+    Route::delete('/admin/user/{user}', [AdminController::class, 'destroyuser'])->name('user.delete');
 });

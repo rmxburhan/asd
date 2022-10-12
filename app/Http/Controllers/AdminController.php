@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\User;
+
 class AdminController extends Controller
 {
     public function index()
@@ -41,5 +43,17 @@ class AdminController extends Controller
     public function updateproduk(Request $request, Produk $produk)
     {
               
+    }
+
+    public function userindex()
+    {
+        $users = User::all();
+        return view('kelolauser', compact('users'));
+    }
+
+    public function destroyuser(User $user)
+    {
+        $user->delete();
+        return back()->with('status', 'User berhasil dihapus');
     }
 }

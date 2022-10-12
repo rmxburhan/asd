@@ -17,6 +17,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('view.produk.admin') }}">Kelola produk</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('view.kelolauser') }}">Kelola user</a>
+          </li>
           @else
           <li class="nav-item">
             <a class="nav-link" href="{{ route('view.keranjang') }}">Keranjang</a>
