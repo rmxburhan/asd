@@ -1,5 +1,7 @@
 <div class="container mt-5">
-    <a href="" class="btn btn-danger">[+] Tambah</a>
+    <a href="{{ route('view.produk.add') }}" class="btn btn-danger">[+] Tambah</a>
+    <br>
+    <span class="text-danger">{{ (Session::has('status') ? Session::get('status'): "") }}</span>
     <table class="table table-responsive-sm mt-3">
         <thead>
             <tr>
@@ -19,18 +21,17 @@
                     <td>Rp. {{number_format($item->harga , 0 , ',', '.')}}</td>
                     <td>
                         <div class="d-flex">
-                        <form action="" method="POST" class="me-2">
-                            <button class="btn btn-secondary">
+                            <button href="{{ route('view.edit', $item->id) }}" class="btn btn-secondary me-2">
                                 Edit
                             </button>
-                        </form>
-                        <form action="" method="POST">
+                        <form action="{{ route('destroy.produk', $item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button class="btn btn-primary">
                                 Hapus
                             </button>
                         </form>
                         </div>
-                      
                     </td>
                 </tr>
             @endforeach

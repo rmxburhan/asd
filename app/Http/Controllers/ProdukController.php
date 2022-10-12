@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetailTransaksi;
+use App\Models\Kategori;
 use App\Models\Produk;
 use Exception;
 use Illuminate\Http\Request;
@@ -46,5 +47,17 @@ class ProdukController extends Controller
         ]);
 
         return back()->with('status', 'Produk berhasil dimasukan kedalam keranjang');
+    }
+    
+    public function destroy(Produk $produk)
+    {
+        $produk->delete();
+        return back()->with('status', 'Item berhasil dihapus');
+    }
+
+    public function addproduk()
+    {
+        $kategoris = Kategori::all();
+        return view('admin.addproduk', compact('kategoris'));
     }
 }

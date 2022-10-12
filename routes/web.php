@@ -34,4 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/sumary', [UserController::class , 'summary'])->name('view.summary');
 
     Route::get('/admin/produk', [AdminController::class , 'index'])->name('view.produk.admin');
+    Route::get('/admin/produk/add', [ProdukController::class, 'addproduk'])->name('view.produk.add');
+    Route::post('/admin/produk', [AdminController::class, 'storeproduk'])->name('store.produk');
+    Route::delete('/admin/produk/{produk}', [ProdukController::class, 'destroy'])->name('destroy.produk');
+    Route::get('/edit/produk/{produk}', [AdminController::class, 'edit'])->name('view.edit');
 });
