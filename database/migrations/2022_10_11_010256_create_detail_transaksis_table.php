@@ -15,9 +15,9 @@ class CreateDetailTransaksisTable extends Migration
     {
         Schema::create('detail_transaksis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transaksi_id')->nullable()->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('produk_id')->constrained();
+            $table->foreignId('transaksi_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('produk_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->integer('qty');
             $table->enum('status', ['keranjang', 'cekout']);
             $table->integer('total_harga');

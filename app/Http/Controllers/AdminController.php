@@ -42,12 +42,19 @@ class AdminController extends Controller
 
     public function updateproduk(Request $request, Produk $produk)
     {
-              
+        $data = $request->validate([
+            'name' => 'required',
+            'harga' => 'required',
+            'kategori_id' =>'required'
+        ]);
+
+        $produk->update($data);
+        return redirect()->route('view.produk.admin')->with('status', 'Produk berhasil diedit');
     }
 
     public function userindex()
     {
-        $users = User::all();
+        $users = User::where('role', 'customer')->get();
         return view('kelolauser', compact('users'));
     }
 

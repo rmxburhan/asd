@@ -11,7 +11,7 @@
                             <input type="text" name="name" id="namaProduk" class="form-control" placeholder="Nama produk" value="{{ $produk->name }}">
                         </div>
                         <div class="mb-3">
-                            <select class="form-select form-select" aria-label=".form-select-sm example" name="kategori">
+                            <select class="form-select form-select" aria-label=".form-select-sm example" name="kategori_id">
                                 @foreach ($kategoris as $kategori)
                                     <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
                                 @endforeach

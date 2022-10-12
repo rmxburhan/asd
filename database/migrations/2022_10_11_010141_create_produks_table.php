@@ -18,7 +18,7 @@ class CreateProduksTable extends Migration
             $table->string('name');
             $table->integer('harga');
             $table->string('foto');
-            $table->foreignId('kategori_id')->constrained();
+            $table->foreignId('kategori_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
